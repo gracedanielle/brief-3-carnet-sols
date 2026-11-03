@@ -31,6 +31,17 @@ export function phMinMax(observations) {
 // Exemple : { sableux: 3, limoneux: 4, argileux: 3 }
 // Liste vide : {} (un objet vide).
 export function compterParTexture(observations) {
+ const compteur = {};
+ for (const observation of observations) {
+  const texture = observation.texture;
+  if (compteur[texture] === undefined) {
+    compteur[observation.texture] = 1;
+  } else {
+    compteur[observation.texture] ++;
+    };
+  
+ }
+ return compteur;
   throw new Error('TODO : coder compterParTexture dans src/synthese.js');
 }
 
