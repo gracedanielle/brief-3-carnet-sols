@@ -47,6 +47,25 @@ export function verifierObservation(saisie, observations) {
       }
   }
 }
+
+if(TEXTURES.includes(saisie.texture)) {
+  observations.texture = saisie.texture;}
+  else {
+    Erreur.push("La texture est non reconnue");}
+
+const k = Number(saisie.pH.replace(',', '.'));
+if (saisie.pH === '' || isNaN(k) || k < 0 || k > 14) {
+  Erreur.push("Veuillez un pHvalide entre 0 et 14");
+}
+
+if(saisie.parcelle.trim() === '') {
+  Erreur.push("Veuillez saisir obligatoirement uneparcelle validée");
+}
+  
+if(!HUMIDITES.includes(saisie.etatHumidite)) {
+  Erreur.push(`Veuillez saisir un état d'humidité valide: ${HUMIDITES}`);
+}
+return Erreur;
   throw new Error('TODO : coder verifierObservation dans src/registre.js');
 }
 
