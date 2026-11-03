@@ -9,6 +9,7 @@ export const HUMIDITES = ['sec', 'intermédiaire', 'humide'];
 // Renvoie une ligne de texte qui décrit l'observation.
 // Exemple : 'S01 | P1 | sableux | pH 5.2 | sec'
 export function formaterObservation(observation) {
+  return `${observation.id} | ${observation.parcelle} | ${observation.texture} | pH ${observation.pH} | ${observation.etatHumidite}`;
   throw new Error('TODO : coder formaterObservation dans src/registre.js');
 }
 
