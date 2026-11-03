@@ -26,6 +26,7 @@ export function listerObservations(observations) {
 
 // Renvoie l'observation qui a cet identifiant de point, ou undefined si elle n'existe pas.
 export function trouverParId(observations, id) {
+  return observations.find(observation => observation.id === id);
   throw new Error('TODO : coder trouverParId dans src/registre.js');
 }
 
@@ -37,6 +38,15 @@ export function trouverParId(observations, id) {
 // · texture présente dans TEXTURES · pH nombre entre 0 et 14 (bornes comprises)
 // · etatHumidite présent dans HUMIDITES. N'ajoutez aucune autre règle que celles-ci.
 export function verifierObservation(saisie, observations) {
+   const Erreur = [];
+  if (saisie.id === " ") {
+    return Erreur.push("id est obligatoire");
+  } else { for (const obs of observations) {
+      if(obs.id === saisie.id) {
+        Erreur.push("id existant");
+      }
+  }
+}
   throw new Error('TODO : coder verifierObservation dans src/registre.js');
 }
 
