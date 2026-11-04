@@ -55,5 +55,5 @@ export function pointsADiscuter(observations, seuil) {
   }
 }
 return resultat;
-  throw new Error('TODO : coder pointsADiscuter dans src/synthese.js');
+  //throw new Error('TODO : coder pointsADiscuter dans src/synthese.js');
 }

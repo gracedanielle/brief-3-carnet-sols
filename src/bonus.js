@@ -12,7 +12,14 @@ export const CHAMPS_MODIFIABLES = ['parcelle', 'texture', 'pH', 'etatHumidite'];
 // Supprime du carnet l'observation qui a cet identifiant.
 // Renvoie l'observation supprimée, ou undefined si elle n'existe pas (le carnet ne change pas).
 export function supprimerObservation(observations, id) {
-  throw new Error('TODO Bonus : coder supprimerObservation dans src/bonus.js');
+  const position = observations.findIndex(observation => observation.id === id);
+
+  if(position === -1) {
+    return undefined;
+  } else {
+  const conserverSupprimer = observations.splice(position, 1); // position : index de l'élément à supprimer, 1 : nombre d'éléments à supprimer.
+  return conserverSupprimer[0];
+  } //index 0 car splice renvoie un tableau, même si on ne supprime qu'un élément.
 }
 
 // Modifie UN champ d'une observation. La nouvelle valeur arrive sous forme de TEXTE et suit
@@ -21,17 +28,68 @@ export function supprimerObservation(observations, id) {
 // Erreurs : identifiant introuvable · champ 'id' (non modifiable) · champ absent de CHAMPS_MODIFIABLES
 //           · valeur refusée par les règles de l'ajout.
 export function modifierObservation(observations, id, champ, valeur) {
-  throw new Error('TODO Bonus : coder modifierObservation dans src/bonus.js');
+
+  const erreurs=[];
+  const observation = trouverParId(observations, id)
+
+  if (!observation) {
+    erreurs.push(`Indentifiant introuvable`);
+    return erreurs;
+  }  
+  
+  /*if (!observation) {
+    erreurs.push(`Identifiant introuvable`);
+    return erreurs;
+  }*/
+
+  if (champ === 'id') {
+    erreurs.push(`Le champ 'id' ne peut pas etre modifié`);
+    return erreurs;
+  }
+
+  if (!CHAMPS_MODIFIABLES.includes(champ)) {
+    erreurs.push(`Le champ est absent des champs modifiables autorisés`);
+    return erreurs;
+  }
+
+  let valeurTraitee = valeur;
+  if (champ === 'pH') {
+valeurTraitee = (versNombre(valeur));
+if (isNaN(valeurTraitee) || valeurTraitee < 0 || valeurTraitee > 14) {
+  erreurs.push(`Veuillez entrer un pH valide entre 0 et 14`);
 }
+  }
+ if (erreurs.length > 0) {
+  return erreurs;
+ }
+ observation[champ] = valeurTraitee;
+  return [];  
+  }
 
 // Renvoie une COPIE triée par pH décroissant. Le tableau reçu ne doit pas changer d'ordre.
 export function trierParPhDecroissant(observations) {
-  throw new Error('TODO Bonus : coder trierParPhDecroissant dans src/bonus.js');
+  return [...observations].sort((a,b) => b.pH - a.pH);
 }
 
 // Renvoie { texture, nombre } pour la texture la plus fréquente, ou null si la liste est vide.
 // En cas d'égalité, la première texture rencontrée l'emporte.
 // Exemple : { texture: 'limoneux', nombre: 4 }
 export function textureLaPlusFrequente(observations) {
-  throw new Error('TODO Bonus : coder textureLaPlusFrequente dans src/bonus.js');
-}
+  if (!observations || observations.length === 0) {
+    return null;
+  }
+  const comptage = compterParTexture(observations);
+  let textureMax = null;
+  let nombreMax = 0;
+  for (const obs of observations) {
+    const texture = obs.texture;
+    if (texture && comptage[texture] > nombreMax) {
+      nombreMax = comptage[texture];
+      textureMax = texture;
+    }
+  }
+  /*if (!textureMax) {
+    return null;
+  }*/
+  return { texture: textureMax, nombre: nombreMax };
+ }

@@ -4,7 +4,7 @@
 
 ## Contexte
 
-✏️ *En cinq à huit phrases : qui utilise l'outil (son métier, son geste professionnel), son besoin, ce qu'il saisit, ce que le programme lui affiche, ce que l'outil ne fait pas.*
+Le carnet d'observation des sols est utilisé par l'équipe de la ferme pédagogique, notamment par les assistants terrain en Agritech. Leur geste professionnel consiste à observer différents points de sol à l'aide de la fiche de terrain et à relever leurs caractéristiques. Ils ont besoin de conserver les observations, de retrouver facilement les points concernés et d'identifier les valeurs qui nécessitent une vérification avec le coach agronome. Pour cela, l'utilisateur saisit l'identifiant du point, la parcelle, la texture du sol, la valeur du pH et l'état d'humidité du sol. Le programme permet d'ajouter et d'enregistrer les observations dans un fichier JSON, de les afficher, de les rechercher et de les trier par pH. Il présente également une synthèse avec les pH minimum et maximum, le nombre d'observations par texture et les points dont le pH est inférieur à 5,5, à discuter avec le coach. Cet outil facilite le suivi et la conservation des données de terrain. Cependant, il ne réalise aucun diagnostic agronomique, ne donne aucun conseil de fertilisation et ne remplace pas l'analyse ou l'avis de l'agronome.
 
 ## Prérequis et lancement
 
@@ -23,18 +23,19 @@ Sous PowerShell, si `npm` est bloqué : `npm.cmd test`.
 
 ✏️ *Cochez seulement ce qui marche : `- [x]`.*
 
-- [ ] Données lues et enregistrées dans `donnees/observations.json`
+- [X] Données lues et enregistrées dans `donnees/observations.json`
 - [ ] Ajouter une observation, saisies invalides refusées sans arrêter le programme
 - [ ] Lister les observations, message si le carnet est vide
 - [ ] Rechercher par point ou par parcelle ; filtrer par texture
-- [ ] Trier par pH
-- [ ] Synthèse : pH minimum et maximum, nombre par texture, points à discuter (pH < 5,5)
-- [ ] Bonus : supprimer et modifier une observation (choix 6 et 7)
-- [ ] Bonus : tri par pH décroissant, texture la plus fréquente
+- [X] Trier par pH
+- [X] Synthèse : pH minimum et maximum, nombre par texture, points à discuter (pH < 5,5)
+- [X] Bonus : supprimer et modifier une observation (choix 6 et 7)
+- [X] Bonus : tri par pH décroissant, texture la plus fréquente
 
 ## Données
 
 ✏️ *Le fichier, le nombre d'observations, les champs (voir [docs/dictionnaire-donnees.md](docs/dictionnaire-donnees.md)), le pH sans unité. Rappelez qu'elles sont fictives.*
+
 
 ## Limites
 
@@ -47,3 +48,4 @@ Sous PowerShell, si `npm` est bloqué : `npm.cmd test`.
 ## Auteur
 
 ✏️ *Prénom NOM, compte GitHub. Entraide : avec qui, sur quoi.*
+Grace Danielle YOBOUE, gracedanielle, Entraide: 

@@ -74,7 +74,7 @@ export function creerObservation(saisie) {
   const observation = {...saisie};
 observation.pH = Number(saisie.pH.replace(',', '.'));
 return observation;
-  throw new Error('TODO : coder creerObservation dans src/registre.js');
+  //throw new Error('TODO : coder creerObservation dans src/registre.js');
 }
 
 // Ajoute la saisie au carnet si elle est valide (verifierObservation, puis creerObservation).
@@ -86,5 +86,4 @@ export function ajouterObservation(observations, saisie) {
     const observation = creerObservation(saisie); {
       observations.push(observation);
       return [];}
-  throw new Error('TODO : coder ajouterObservation dans src/registre.js');
 }

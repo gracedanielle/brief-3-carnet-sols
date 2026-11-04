@@ -2,6 +2,7 @@
 // À vous d'écrire tout le menu : accueil, chargement des données, menu affiché avant chaque choix,
 // actions, sortie et gestion des erreurs. Comportement et textes imposés : fiches/3-ajouter-lister.md.
 // Lancer : node app.js
+
 import { demander, fermerSaisie, ouvrirSaisie } from './src/saisie.js';
 import { chargerJson, enregistrerJson } from './src/stockage.js';
 import { HUMIDITES, TEXTURES, ajouterObservation, formaterObservation, listerObservations, trouverParId } from './src/registre.js';
