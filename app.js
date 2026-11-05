@@ -10,6 +10,15 @@ import { filtrerParParcelle, filtrerParTexture, trierParPh } from './src/recherc
 import { SEUIL_PH_A_DISCUTER, compterParTexture, phMinMax, pointsADiscuter } from './src/synthese.js';
 
 const FICHIER_DONNEES = 'donnees/observations.json';
+function afficherMenu() {
+  console.log(`===============MENU===============`);
+  console.log(`1. Ajouter une observation`)
+  console.log(`2. Lister les observations`);
+  console.log(`3. Rechercher par parcelle`);
+  console.log(`5. Trier par pH`);
+  console.log(`6. Synthèse des observations`);
+  console.log(`0. Quitter`);
+}
 
 async function main() {
   ouvrirSaisie();
