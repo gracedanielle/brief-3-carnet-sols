@@ -15,14 +15,14 @@ function afficherMenu() {
   console.log(`1. Ajouter une observation`)
   console.log(`2. Lister les observations`);
   console.log(`3. Rechercher par parcelle`);
-  console.log(`5. Trier par pH`);
-  console.log(`6. Synthèse des observations`);
+  console.log(`4. Trier par pH`);
+  console.log(`5. Synthèse des observations`)
   console.log(`0. Quitter`);
 }
 //Ajouter une observation
 async function ajouter(observations) {
   console.log('');
-  console.log(`--- Ajouter une observation ---`);
+  console.log(`\n--- Ajouter une observation ---`);
   const id = await demander(`Point observé (ex.S11) :`);
   if (id === null) return;
 
