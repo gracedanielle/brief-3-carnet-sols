@@ -66,7 +66,6 @@ if(!HUMIDITES.includes(saisie.etatHumidite)) {
   Erreur.push(`Veuillez saisir un état d'humidité valide: ${HUMIDITES}`);
 }
 return Erreur;
-  throw new Error('TODO : coder verifierObservation dans src/registre.js');
 }
 
 // Fabrique l'observation à enregistrer à partir d'une saisie VALIDE : pH devient un nombre.
@@ -74,7 +73,6 @@ export function creerObservation(saisie) {
   const observation = {...saisie};
 observation.pH = Number(saisie.pH.replace(',', '.'));
 return observation;
-  //throw new Error('TODO : coder creerObservation dans src/registre.js');
 }
 
 // Ajoute la saisie au carnet si elle est valide (verifierObservation, puis creerObservation).
