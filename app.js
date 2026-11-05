@@ -158,7 +158,7 @@ async function main() {
 async function main() {
   ouvrirSaisie();
   console.log(`================================================`);
-  console.log(`          Ferme pédagogique`);
+  console.log(`          Ferme pédagogique`                     );
   console.log(`================================================`);
 
   let observations = [];
