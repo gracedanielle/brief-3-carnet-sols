@@ -21,16 +21,14 @@ Sous PowerShell, si `npm` est bloqué : `npm.cmd test`.
 
 ## Fonctionnalités
 
-✏️ *Cochez seulement ce qui marche : `- [x]`.*
-
 - [X] Données lues et enregistrées dans `donnees/observations.json`
-- [ ] Ajouter une observation, saisies invalides refusées sans arrêter le programme
-- [ ] Lister les observations, message si le carnet est vide
-- [ ] Rechercher par point ou par parcelle ; filtrer par texture
+- [X] Ajouter une observation, saisies invalides refusées sans arrêter le programme
+- [X] Lister les observations, message si le carnet est vide
+- [X] Rechercher par point ou par parcelle ; filtrer par texture
 - [X] Trier par pH
 - [X] Synthèse : pH minimum et maximum, nombre par texture, points à discuter (pH < 5,5)
-- [X] Bonus : supprimer et modifier une observation (choix 6 et 7)
-- [X] Bonus : tri par pH décroissant, texture la plus fréquente
+- [ ] Bonus : supprimer et modifier une observation (choix 6 et 7)
+- [ ] Bonus : tri par pH décroissant, texture la plus fréquente
 
 ## Données
 
@@ -39,7 +37,7 @@ Sous PowerShell, si `npm` est bloqué : `npm.cmd test`.
 
 ## Limites
 
-✏️ *Au moins trois. Par exemple : le carnet repère des valeurs à discuter, mais ne produit aucun diagnostic de fertilisation.*
+Le carnet ne présente pas la météo, la teneur en NPK(azote, phosphore, potassium) et l'humidité de l'air.
 
 ## Documents
 
@@ -47,5 +45,6 @@ Sous PowerShell, si `npm` est bloqué : `npm.cmd test`.
 
 ## Auteur
 
-✏️ *Prénom NOM, compte GitHub. Entraide : avec qui, sur quoi.*
-Grace Danielle YOBOUE, gracedanielle, Entraide: 
+Grace Danielle YOBOUE, gracedanielle, Entraide: N'DIAMOI Angaman Jules Christ
+                                                KANGA Jules Christ
+                                                DIBY Konan François Ebenezer
