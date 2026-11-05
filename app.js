@@ -62,6 +62,94 @@ async function ajouter(observations) {
     console.log(`Observation ${saisie.id} ajoutée. Le carnet compte ${observations.length} observation(s).`);
   }
 }
+//Lister observations
+async function lister(observations) {
+  console.log('');
+  console.log(`---Liste des observations (${observations.length})`);
+  console.log(`---Rechercher une observation---`);
+
+  const type = await demander(`Rechercher par point, parcelle ou texture: `);
+
+  if (type === null) return;
+
+  const typeRecherche = type.trim().toLowerCase();
+
+  let resultat = [];
+
+  if (typeRecherche === 'point') {
+    const id = await demander(`Identifiant du point : `);
+    if (id === null) return;
+
+    const observation = trouverParId(
+      observations,
+       id.trim().toUpperCase()
+      );
+
+    if (observation !== undefined) {
+      resultat.push(observation);
+    }
+  } else if (typeRecherche === 'parcelle') {
+    const parcelle = await demander(`Nom de la parcelle: `);
+    if (parcelle === null) return; 
+
+  resultat = filtrerParParcelle(observations, parcelle.trim().toLowerCase());
+
+ } else if (typeRecherche === 'texture') {
+  const texture = await demander(`Nom de la texture: `);
+    if (texture === null) return;
+
+    resultat = filtrerParTexture(observations, texture.trim().toLowerCase());
+
+  } else {
+    console.log(`Type de recherche inconnu.`);
+    return;
+  }
+
+  if (resultat.length === 0) {
+console.log(`Aucune observation trouvée`);
+  } else {
+    console.log(listerObservations(resultat));
+  }
+}
+
+//Trier les observations par pH
+function trier (observations) {
+  console.log('');
+  console.log(`---Observations triées par pH---`);
+
+  const resultat = trierParPh(observations);
+
+  console.log(listerObservations(resultat));
+}
+
+//Afficher la synthèse
+function afficherSynthese (observations) {
+console.log('');
+console.log(`---Synthèse des observations---`);
+
+const valeurs = phMinMax(observations);
+ if (valeurs === null) {
+  console.log(`Aucune observation pour faire une synthèse`);
+  return;
+ }
+ console.log(`ph minimum : ${valeurs.min}`);
+ console.log(`ph maximum : ${valeurs.max}`);
+ console.log(`Nombre d'observations par texture: `);
+
+ const textures = compterParTexture(observations);
+
+ for (const texture in textures) {
+  console.log(`${texture} : ${textures[texture]}`);
+ }
+ const points = pointsADiscuter(observations, SEUIL_PH_A_DISCUTER);
+ console.log(`Points à discuter avec le coach (pH inférieur à ${SEUIL_PH_A_DISCUTER}) :`);
+
+ if (points.length === 0) {
+  console.log(`Aucun point à discuter.`);
+ } else {
+  console.log(listerObservations(points));
+ }
+}
 
 
 async function main() {
