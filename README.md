@@ -11,7 +11,7 @@ Le carnet d'observation des sols est utilisé par l'équipe de la ferme pédagog
 - Node.js 20 ou plus récent, Git ; aucune bibliothèque à installer.
 
 ```bash
-git clone https://github.com/VOTRE-COMPTE/brief-3-carnet-sols.git
+git clone https://github.com/gracedanielle/brief-3-carnet-sols
 cd brief-3-carnet-sols
 node app.js
 npm test
