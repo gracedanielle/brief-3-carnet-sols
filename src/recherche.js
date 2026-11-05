@@ -4,7 +4,6 @@
 // Renvoie un NOUVEAU tableau avec les observations de cette parcelle (éventuellement vide).
 export function filtrerParParcelle(observations, parcelle) {
   return observations.filter(observation => observation.parcelle === parcelle);
-  //throw new Error('TODO : coder filtrerParParcelle dans src/recherche.js');
 }
 
 // Renvoie un NOUVEAU tableau avec les observations de cette texture (éventuellement vide).
@@ -16,6 +15,5 @@ export function filtrerParTexture(observations, texture) {
 // Le tableau reçu ne doit pas changer d'ordre. Deux observations de même pH gardent leur ordre d'origine.
 export function trierParPh(observations) {
   return [...observations].sort((a, b) => a.pH - b.pH);
-  
-  //throw new Error('TODO : coder trierParPh dans src/recherche.js');
+
 }
